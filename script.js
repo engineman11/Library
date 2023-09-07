@@ -259,6 +259,8 @@ window.history.pushState('popupclosed', null, null);    // initial state: closed
 let hideModal = function(event) {
     if (event.state == 'popupclosed') {
         closepopup();
+        newBookDialog.close()
+        removeBookDialog.close()
     }
 };
 
