@@ -1,0 +1,391 @@
+/* * {  outline: red solid 1px;} */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+html {
+  @media screen and (min-width: 1600px) {
+    font-size: 1.1em;
+  }
+  @media screen and (min-width: 1920px) {
+    font-size: 1.2em;
+  }
+  @media screen and (min-width: 2560px) {
+    font-size: 1.5em;
+  }
+  @media screen and (min-width: 3820px) {
+    font-size: 2.2em;
+  }
+}
+
+body {
+  padding: 0;
+  padding-bottom: 0;
+
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(36, 36, 36);
+  color: white;
+
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+
+header.header {
+  padding-bottom: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0;
+  text-align: center;
+  height: 6em;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+  gap: 1em;
+  & > p, > div {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+
+header > div > p {
+  font-size: 0.8em;
+  font-weight: 650;
+  height: auto;
+  @media screen and (max-width: 481px) { 
+    font-size: 0.7em;
+  }
+}
+
+header > p:last-of-type {
+  font-size: 1.2em;
+  font-weight: 900;
+}
+
+/* .library {
+   height: 90vh;
+  width: 100%;
+
+
+} */
+
+.cards {
+  padding: 2em;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat( auto-fit, minmax(17em, 1fr ));
+  /* grid-auto-rows: 1fr; */
+  gap: 2em;
+
+  font-weight: 600;
+  overflow: auto;
+
+
+}
+
+.card {
+  /* margin: auto; */
+  /* margin-top: 10px; */
+  /* position: absolute; */
+
+  height: 25em;
+  width: 17em;
+  background-color: rgb(126, 126, 126);
+  color: white;
+  border: none;
+  border-radius: 0.5em;
+  padding: 1.5em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 1em;
+  box-shadow: 0.2em 0.2em 0.4em rgba(0, 0, 0, 0.411);
+
+  &::backdrop {
+    background-color: hsl(250, 100%, 50%, 0.25);
+  }
+  &:hover {
+    box-shadow: 0.4em 0.4em 0.4em rgba(0, 0, 0, 0.678);
+  }
+}
+
+.card p {
+  font-size: 1.2em;
+}
+
+/* .card p[class="toggle-read"] {
+  white-space: pre;
+
+} */
+
+.card p.title {
+  text-align: center;
+  font-weight: 900;
+  font-size: 1.4em;
+}
+
+
+.card .card-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: auto;
+  gap: 1em;
+}
+
+.card-buttons > button {
+  flex: 1;
+  align-self: center;
+  height: 3em;
+  font-size: 1.2em;
+  background-color: rgb(202, 202, 202);
+  &:hover {
+    background-color: rgb(238, 238, 238);
+  }
+  &:active {
+    background-color: rgb(165, 165, 165);
+  }
+}
+/* 
+.card .remove-book {
+  background-color: rgb(228, 0, 0);
+
+  &:hover {
+    background-color: rgb(255, 40, 40);
+  }
+  &:active {
+    background-color: rgb(158, 0, 0);
+  }
+} */
+
+dialog {
+  z-index: 10;
+  margin: 1em auto;
+  margin-bottom: 4em;
+  height: 85vh;
+  min-width: 22em;
+  max-width: 95vw;
+  width: clamp(20em, 30vw, 90vw);
+  background-color: rgb(60, 54, 63);
+  color: white;
+  border: none;
+  border-radius: 0.5em;
+  padding: 1.5em;
+  font-size: 1em;
+
+  &::backdrop {
+    background-color: hsl(250, 100%, 50%, 0.25);
+  }
+}
+
+.remove-book-dialog {
+  height: 10em;
+  width: 30em;
+  padding: 0;
+}
+
+.remove-book-dialog > div {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* gap: 1em; */
+}
+
+.remove-book-dialog > div p{
+  font-size: 1.3em;
+  font-weight: 700;
+  text-align: center;
+}
+
+.remove-book-dialog > div > div:last-of-type {
+  margin: 0;
+  padding: 0;
+  height: 50%;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+
+.yes {
+  flex: 1;
+  background-color: rgb(228, 0, 0);
+  height: 3em;
+  &:hover {
+    background-color: rgb(255, 40, 40);
+  }
+  &:active {
+    background-color: rgb(158, 0, 0);
+  }
+}
+
+.no {
+  flex: 1;
+  background-color: rgb(165, 165, 165);
+  height: 3em;
+}
+
+form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* gap: 2em; */
+}
+
+label, legend {
+
+  font-weight: 700;
+  /* font-size: 1em; */
+}
+
+form > label {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+fieldset {
+  border: none;
+}
+
+fieldset:last-of-type {
+  margin-top: 0.25em;
+  margin-bottom: 0.6em;
+}
+
+fieldset > div {
+  margin-top: 0.2em;
+  gap: 3em;
+  display: flex;
+  flex-direction: row;
+}
+
+fieldset > label {
+  flex-direction: row;
+}
+
+.radio label {
+  transform: translateX(2.5em);
+}
+
+input[type="radio"] {
+  transform: translateX(-4.3em) translateY(0.5em);
+  width: 2em;
+  height: 2em;
+}
+
+input {
+  /* margin-top: 0.5em; */
+  height: 2rem;
+  border: none;
+  border-radius: 0.3em;
+  padding-left: 0.5em;
+  font-size: 1em;
+}
+
+input[type="number"] {
+  width: 33%;
+}
+
+
+.buttons {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+button {
+  flex: 1;
+  height: 2em;
+  border: none;
+  border-radius: 0.2em;
+  color: rgb(0, 0, 0);
+  color: white;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+.submit-button {
+  background-color: rgb(53, 187, 0);
+  &:hover {
+    background-color: rgb(96, 255, 33);
+  }
+  &:active {
+    background-color: rgb(34, 119, 0);
+  }
+}
+
+.cancel-button {
+  background-color: rgb(228, 0, 0);
+  &:hover {
+    background-color: rgb(255, 40, 40);
+  }
+  &:active {
+    background-color: rgb(158, 0, 0);
+  }
+}
+
+.reset-button {
+  background-color: rgb(206, 192, 0);
+  &:hover {
+    background-color: rgb(255, 242, 59);
+  }
+  &:active {
+    background-color: rgb(146, 136, 0);
+  }
+}
+
+footer {
+  height: 6em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  & > div {
+    height: 65%;
+  }
+}
+
+.new-book-button {
+  background-color: blueviolet;
+  color: white;
+  height: 100%;
+  width: 8em;
+  height: 100%;
+  &:hover {
+    background-color: rgb(167, 74, 255);
+  }
+  &:active {
+    background-color: rgb(89, 0, 172);
+  }
+  
+}
