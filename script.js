@@ -252,3 +252,19 @@ document.addEventListener('click', (e) => {
     openRemoveBookDialog(removeBookButton)
   }
 })
+
+
+window.history.pushState('popupclosed', null, null);    // initial state: closed
+
+let hideModal = function(event) {
+    if (event.state == 'popupclosed') {
+        closepopup();
+    }
+};
+
+let showModal = function(event) {
+    if (window.history !== 'opened') {
+        window.history.pushState('opened', null, null);
+    }
+    window.addEventListener('popstate', hideModal, { once: true })
+  };   

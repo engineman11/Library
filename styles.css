@@ -29,7 +29,7 @@ body {
 
   height: 100vh;
   width: 100vw;
-  background-color: rgb(36, 36, 36);
+  background-color: rgb(29, 27, 22);
   color: white;
   /* background-image: url("library-icon.png");
   background-repeat: no-repeat;
@@ -190,7 +190,7 @@ dialog {
   min-width: 22em;
   max-width: 95vw;
   width: clamp(20em, 30vw, 90vw);
-  background-color: rgb(60, 54, 63);
+  background-color: rgb(77, 77, 77);
   color: white;
   border: none;
   border-radius: 0.5em;
@@ -203,9 +203,10 @@ dialog {
 }
 
 .remove-book-dialog {
-  height: 10em;
-  width: 30em;
-  padding: 0;
+  height: max-content;
+  width: max-content;
+  padding: 2em;
+  margin: auto;
 }
 
 .remove-book-dialog > div {
@@ -217,7 +218,7 @@ dialog {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* gap: 1em; */
+  gap: 2em;
 }
 
 .remove-book-dialog > div p{
@@ -230,11 +231,11 @@ dialog {
   margin: 0;
   padding: 0;
   height: 50%;
-  width: 70%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1em;
+  gap: 2em;
 }
 
 
@@ -242,6 +243,7 @@ dialog {
   flex: 1;
   background-color: rgb(228, 0, 0);
   height: 3em;
+  max-width: 8em;
   &:hover {
     background-color: rgb(255, 40, 40);
   }
@@ -254,6 +256,7 @@ dialog {
   flex: 1;
   background-color: rgb(165, 165, 165);
   height: 3em;
+  max-width: 8em;
   &:hover {
     background-color: rgb(212, 212, 212);
   }
@@ -376,6 +379,7 @@ button {
 }
 
 footer {
+  margin-bottom: 0.2em;
   height: 8em;
   display: flex;
   flex-direction: column;
@@ -386,7 +390,7 @@ footer {
 }
 
 .new-book-button {
-  background-color: blueviolet;
+  background-color: rgb(124, 0, 240);
   color: white;
   height: 100%;
   width: 8em;
@@ -395,7 +399,7 @@ footer {
     background-color: rgb(167, 74, 255);
   }
   &:active {
-    background-color: rgb(89, 0, 172);
+    background-color: rgb(98, 0, 190);
   }
   
 }
