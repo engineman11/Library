@@ -31,7 +31,11 @@ body {
   width: 100vw;
   background-color: rgb(36, 36, 36);
   color: white;
-
+  /* background-image: url("library-icon.png");
+  background-repeat: no-repeat;
+  background-size: 30%;
+  background-attachment: fixed;
+  background-position: center;  */
 }
 
 main {
@@ -250,6 +254,12 @@ dialog {
   flex: 1;
   background-color: rgb(165, 165, 165);
   height: 3em;
+  &:hover {
+    background-color: rgb(212, 212, 212);
+  }
+  &:active {
+    background-color: rgb(139, 139, 139);
+  }
 }
 
 form {
@@ -269,7 +279,7 @@ label, legend {
 form > label {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 1vh;
 }
 
 fieldset {
@@ -282,7 +292,7 @@ fieldset:last-of-type {
 }
 
 fieldset > div {
-  margin-top: 0.2em;
+  /* margin-top: -0.4vh; */
   gap: 3em;
   display: flex;
   flex-direction: row;
@@ -366,7 +376,7 @@ button {
 }
 
 footer {
-  height: 6em;
+  height: 8em;
   display: flex;
   flex-direction: column;
   justify-content: center;
