@@ -1,4 +1,4 @@
-/* * {  outline: red solid 1px;} */
+* {  outline: red solid 1px;}
 
 * {
   padding: 0;
@@ -29,7 +29,7 @@ body {
 
   height: 100vh;
   width: 100vw;
-  background-color: rgb(29, 27, 22);
+  background-color: rgb(31, 31, 31);
   color: white;
   /* background-image: url("library-icon.png");
   background-repeat: no-repeat;
@@ -48,10 +48,7 @@ main {
 
 
 header.header {
-  padding-bottom: 0.5em;
-  padding-left: 1em;
-  padding-right: 1em;
-  padding-top: 0;
+  padding: 0.5em 1em 0.5em 1em ;
   text-align: center;
   height: 6em;
   width: 100%;
@@ -113,8 +110,8 @@ header > p:last-of-type {
 
   height: 25em;
   width: 17em;
-  background-color: rgb(126, 126, 126);
-  color: white;
+  /* background-color: rgb(90, 90, 90); */
+  background: linear-gradient(146deg, rgba(170,84,255,1) 70%, rgb(255, 134, 205) 100%);   color: white;
   border: none;
   border-radius: 0.5em;
   padding: 1.5em;
@@ -162,14 +159,21 @@ header > p:last-of-type {
   align-self: center;
   height: 3em;
   font-size: 1.2em;
-  background-color: rgb(202, 202, 202);
+  background-color: #e1c0ff;
+       
+  
+  
   &:hover {
-    background-color: rgb(238, 238, 238);
+    background-color: #f5eaff;
   }
+  
+  
   &:active {
-    background-color: rgb(165, 165, 165);
+    background-color: #cd97ff;
   }
 }
+
+
 
 .card .data {
   position: absolute;
@@ -388,27 +392,26 @@ button {
 }
 
 footer {
-  margin-bottom: 0.2em;
-  height: 8em;
+  height: 6em;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   & > div {
     height: 65%;
   }
 }
 
 .new-book-button {
-  background-color: rgb(124, 0, 240);
+  background-color: rgba(170,84,255,1);
   color: white;
   height: 100%;
   width: 8em;
-  height: 100%;
   &:hover {
-    background-color: rgb(167, 74, 255);
+    background-color: rgb(205, 155, 255);
   }
   &:active {
-    background-color: rgb(98, 0, 190);
+    background-color: rgb(141, 27, 255);
   }
   
 }

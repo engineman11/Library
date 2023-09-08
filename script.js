@@ -33,7 +33,6 @@ class Book {
 const initLibrary = function() {
   let i = 0;
   while (i < myLibrary.length) {
-    console.log(myLibrary[i]);
     bookToDom(i)
     i++;
   }
@@ -79,20 +78,20 @@ const bookToDom = function(i) {
   cardButtons.classList.add('card-buttons');
   card.appendChild(cardButtons);
 
-  let readButtonDom = document.createElement('button');
-  readButtonDom.classList.add('toggle-read');
-  readButtonDom.textContent = "📕✅"
-  cardButtons.appendChild(readButtonDom);
+  let removeButtonDom = document.createElement('button');
+  removeButtonDom.classList.add('remove-book');
+  removeButtonDom.textContent = "❌"
+  cardButtons.appendChild(removeButtonDom);
 
   let recommendButtonDom = document.createElement('button');
   recommendButtonDom.classList.add('toggle-recommend');
   recommendButtonDom.textContent = "⭐👎"
   cardButtons.appendChild(recommendButtonDom);
 
-  let removeButtonDom = document.createElement('button');
-  removeButtonDom.classList.add('remove-book');
-  removeButtonDom.textContent = "❌"
-  cardButtons.appendChild(removeButtonDom);
+  let readButtonDom = document.createElement('button');
+  readButtonDom.classList.add('toggle-read');
+  readButtonDom.textContent = "📕✅"
+  cardButtons.appendChild(readButtonDom);
 }
 
 initLibrary()
@@ -263,22 +262,22 @@ document.addEventListener('click', (e) => {
   }
 })
 
-window.history.pushState('popupclosed', null, null);    // initial state: closed
+// window.history.pushState('popupclosed', null, null);    // initial state: closed
 
-let hideModal = function(event) {
-    if (event.state == 'popupclosed') {
-        closepopup();
-        newBookDialog.close()
-        removeBookDialog.close()
-    }
-};
+// let hideModal = function(event) {
+//     if (event.state == 'popupclosed') {
+//         closepopup();
+//         newBookDialog.close()
+//         removeBookDialog.close()
+//     }
+// };
 
-let showModal = function(event) {
-    if (history.state !== 'opened') {
-        window.history.pushState('opened', null, null);
-    }
-    window.addEventListener('popstate', hideModal, { once: true })
-  };   
+// let showModal = function(event) {
+//     if (history.state !== 'opened') {
+//         window.history.pushState('opened', null, null);
+//     }
+//     window.addEventListener('popstate', hideModal, { once: true })
+//   };   
 
   // dialog.addEventListener("click", e => {
 //   const dialogDimensions = dialog.getBoundingClientRect()
