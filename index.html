@@ -7,39 +7,38 @@
   <link rel="shortcut icon" href="library-icon.png" type="image/x-icon">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
 </head>
 <body>
   <main>
-    <!-- <section class="library"> -->
-      <header class="header">
-        <div>
-          <p>Me: Mom, I want to go to the library!</p>
-          <p>Mom: We have a library at home.</p>
-        </div>
-        <p>The library at home:</p>
-      </header>
-      <div class="cards">
-        <!-- <div class="card">
-          <p class="title">Lord Of The Rings</p>
-          <p class="author">by J.R.R. Tolkien</p>
-          <p class="pages">📄 1337 pages</p>
-          <p class="read">📕 Not read</p>
-          <p class="recommend">⭐ Recommend</p>
-          <div class="card-buttons">
-            <button class="toggle-read">📕<br>✅</button>
-            <button class="toggle-recommend">⭐<br>👎</button>
-            <button class="remove-book">❌</button>
-          </div>
-        </div> -->
+    <header class="header">
+      <div>
+        <p>Me: Mom, I want to go to the library!</p>
+        <p>Mom: We have a library at home.</p>
       </div>
-    <!-- </section>  -->
-    <footer>
+      <p>The library at home:</p>
+    </header>
+    <div class="cards">
+      <!-- <div class="card">
+        <p class="title">Lord Of The Rings</p>
+        <p class="author">by J.R.R. Tolkien</p>
+        <p class="pages">📄 1337 pages</p>
+        <p class="read">📕 Not read</p>
+        <p class="recommend">⭐ Recommend</p>
+        <div class="card-buttons">
+          <button class="toggle-read">📕<br>✅</button>
+          <button class="toggle-recommend">⭐<br>👎</button>
+          <button class="remove-book">❌</button>
+        </div>
+      </div> -->
+    </div>
+    <!-- <footer>
       <div>
         <button class="new-book-button">
           New Book
         </button>
       </div>
-    </footer>
+    </footer> -->
     <dialog>
       <form action="" method="dialog" id="book">
         <label for="title">Title
@@ -107,10 +106,9 @@
             </div>
           </div>
     </dialog>
-
+    <button class="fixed-new-book-button">
+      <iconify-icon icon="mdi-plus"></iconify-icon>
+    </button>
   </main>
-  <button class="fixed">
-    <iconify-icon icon="mdi-plus">+</iconify-icon>
-  </button>
 </body>
 </html>

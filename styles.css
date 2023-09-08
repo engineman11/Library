@@ -1,4 +1,4 @@
-* {  outline: red solid 1px;}
+/* * {  outline: red solid 1px;} */
 
 * {
   padding: 0;
@@ -392,7 +392,7 @@ button {
   }
 }
 
-footer {
+/* footer {
   height: 6em;
   display: flex;
   flex-direction: column;
@@ -401,52 +401,38 @@ footer {
   & > div {
     height: 65%;
   }
-}
+} */
 
-.new-book-button {
-  background-color: rgba(170,84,255,1);
-  color: white;
-  height: 100%;
-  width: 8em;
-  &:hover {
-    background-color: rgb(205, 155, 255);
-  }
-  &:active {
-    background-color: rgb(141, 27, 255);
-  }
-  
-}
-
-.fixed {
-  /* display: flex;
+.fixed-new-book-button {
+  display: flex;
   justify-content: center;
-  align-items: center; */
+  align-items: center;
   position: fixed;
   right: 1em;
   bottom: 1em;
   /* margin: 1em; */
   /* padding: 1em; */
 
-  background-color: rgba(170,84,255,1);
+  background-color: rgb(128, 0, 255);
   color: white;
   height: 3em;
   width: 3em;
   border-radius: 100em;
   &:hover {
-    background-color: rgb(205, 155, 255);
+    background-color: rgb(150, 45, 255);
   }
   &:active {
-    background-color: rgb(141, 27, 255);
+    background-color: rgb(99, 0, 199);
   }
   /* * {
     font-size: 5em;
   } */
 }
 
-/* .fixed iconify-icon {
-  display: flex;
+iconify-icon {
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   font-size: 2em;
-  color: white;
-} */
+  /* color: white; */
+}

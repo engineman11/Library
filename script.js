@@ -1,6 +1,6 @@
 
 const submitButton = document.getElementsByClassName("submit-button")[0]
-const newBookButton = document.getElementsByClassName("new-book-button")[0]
+const newBookButton = document.getElementsByClassName("fixed-new-book-button")[0]
 const cancelButton = document.getElementsByClassName("cancel-button")[0]
 const newBookDialog = document.querySelector("dialog")
 const removeBookDialog = document.getElementsByClassName("remove-book-dialog")[0]
@@ -42,6 +42,7 @@ const bookToDom = function(i) {
 
   let card = document.createElement('div');
   card.classList.add('card');
+  card.setAttribute("data", `${i}`);
   cards.appendChild(card);
 
   let title = document.createElement('p');
@@ -189,16 +190,23 @@ noButton.addEventListener("click", function() {
 
 document.addEventListener("keydown", ({key}) => {
   if (key === "Escape") {
-    dialog.close();
+    removeBookDialog.close()
+    newBookDialog.close()
+    // dialog.close();
     document.getElementById("book").reset(); 
   }
 })
 
 function toggleRead(toggleReadButton) {
+  let data = toggleReadButton.parentElement.parentElement.getAttribute("data")
   let read = toggleReadButton.parentElement.parentElement.children[3]
   if (read.textContent != "✅ Read" ) {
     read.textContent = "✅ Read"
-  } else read.textContent = "📕 Not read"
+    myLibrary[data].read = "✅ Read"
+  } else {
+    read.textContent = "📕 Not read"
+    myLibrary[data].read = "📕 Not read"
+  }
 }
 
 document.addEventListener('click', (e) => {
@@ -209,10 +217,15 @@ document.addEventListener('click', (e) => {
 })
 
 function toggleRecommend(toggleRecommendButton) {
-  let read = toggleRecommendButton.parentElement.parentElement.children[4]
-  if (read.textContent != "⭐ Recommend" ) {
-    read.textContent = "⭐ Recommend"
-  } else read.textContent = "👎 Don't Recommend"
+  let data = toggleRecommendButton.parentElement.parentElement.getAttribute("data")
+  let recommend = toggleRecommendButton.parentElement.parentElement.children[4]
+  if (recommend.textContent != "⭐ Recommend" ) {
+    recommend.textContent = "⭐ Recommend"
+    myLibrary[data].recommend = "⭐ Recommend"
+  } else {
+    recommend.textContent = "👎 Don't Recommend"
+    myLibrary[data].recommend = "👎 Don't Recommend"
+  }
 }
 
 document.addEventListener('click', (e) => {
@@ -229,6 +242,7 @@ const updateData = function() {
   while (i < myLibrary.length) {
     myLibrary[i].data = "pos: " + i;
     document.getElementsByClassName("data")[i].textContent = myLibrary[i].data
+    document.getElementsByClassName("card")[i].setAttribute("data", `${i}`)
     i++;
   }
 }
