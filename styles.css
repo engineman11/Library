@@ -1,4 +1,4 @@
-/* * {  outline: red solid 1px;} */
+* {  outline: red solid 1px;}
 
 * {
   padding: 0;
@@ -133,6 +133,7 @@ header > p:last-of-type {
 
 .card p {
   font-size: 1.2em;
+  overflow-wrap: break-word;
 }
 
 /* .card p[class="toggle-read"] {
@@ -338,7 +339,7 @@ input {
   font-size: 1em;
 }
 
-input[type="number"] {
+input[type="tel"] {
   width: 33%;
 }
 

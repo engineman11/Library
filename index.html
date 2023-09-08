@@ -42,13 +42,13 @@
     <dialog>
       <form action="" method="dialog" id="book">
         <label for="title">Title
-          <input type="text" id="title" name="title" required>
+          <input type="text" id="title" name="title" required maxlength="30">
         </label>
         <label for="author">Author
-          <input type="text" id="author" name="author" required>
+          <input type="text" id="author" name="author" maxlength="30">
         </label>
         <label for="pages">Pages
-          <input type="number" name="pages" id="pages" required>
+          <input type="tel" name="pages" id="pages" maxlength="5" inputmode="numeric">
         </label>
         <fieldset class="radio">
           <legend id="read">
@@ -56,7 +56,7 @@
           </legend>
           <div>
             <label for="yes">Yes
-              <input type="radio" name="read" id="read-yes" value="yes" required>
+              <input type="radio" name="read" id="read-yes" value="yes">
             </label>
             <label for="no">No
               <input type="radio" name="read" id="read-no" value="no">
@@ -69,7 +69,7 @@
           </legend>
           <div>
             <label for="yes">Yes
-              <input type="radio" name="recommend" id="recommend-yes" value="yes" required>
+              <input type="radio" name="recommend" id="recommend-yes" value="yes">
             </label>
             <label for="no">No
               <input type="radio" name="recommend" id="recommend-no" value="no">
