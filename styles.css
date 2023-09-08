@@ -416,3 +416,35 @@ footer {
   }
   
 }
+
+.fixed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin: 1em 1em;
+  background-color: rgba(170,84,255,1);
+  color: white;
+  height: 3em;
+  width: 3em;
+  border-radius: 100em;
+  &:hover {
+    background-color: rgb(205, 155, 255);
+  }
+  &:active {
+    background-color: rgb(141, 27, 255);
+  }
+  /* * {
+    font-size: 5em;
+  } */
+}
+
+.fixed iconify-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  color: white;
+}
