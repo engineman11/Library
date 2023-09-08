@@ -86,12 +86,12 @@ const bookToDom = function(i) {
 
   let recommendButtonDom = document.createElement('button');
   recommendButtonDom.classList.add('toggle-recommend');
-  recommendButtonDom.textContent = "⭐👎"
+  recommendButtonDom.textContent = "⭐"
   cardButtons.appendChild(recommendButtonDom);
 
   let readButtonDom = document.createElement('button');
   readButtonDom.classList.add('toggle-read');
-  readButtonDom.textContent = "📕✅"
+  readButtonDom.textContent = "✅"
   cardButtons.appendChild(readButtonDom);
 }
 
@@ -193,7 +193,7 @@ document.addEventListener("keydown", ({key}) => {
     removeBookDialog.close()
     newBookDialog.close()
     // dialog.close();
-    document.getElementById("book").reset(); 
+    // document.getElementById("book").reset(); 
   }
 })
 

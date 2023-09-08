@@ -144,30 +144,30 @@ header > p:last-of-type {
   text-align: center;
   font-weight: 900;
   font-size: 1.4em;
+  margin-bottom: 0.5em;
 }
 
 
 .card .card-buttons {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-top: auto;
-  gap: 1em;
+  gap: 3em;
 }
 
 .card-buttons > button {
-  flex: 1;
+  flex: auto;
   align-self: center;
-  height: 3em;
+  height: 2em;
+  width: 2em;
   font-size: 1.2em;
-  background-color: #f0e6ff;
-       
-  
-  
+  background-color: #ffffff21;  
+  outline: 1px solid rgba(255, 255, 255, 0.281);
+
   &:hover {
     background-color: #ffffff;
   }
-  
   
   &:active {
     background-color: #e4c7ff;
