@@ -1,24 +1,43 @@
 
+const submitButton = document.getElementsByClassName("submit-button")[0]
+const newBookButton = document.getElementsByClassName("new-book-button")[0]
+const cancelButton = document.getElementsByClassName("cancel-button")[0]
+const newBookDialog = document.querySelector("dialog")
+const removeBookDialog = document.getElementsByClassName("remove-book-dialog")[0]
+const yesButton = document.getElementsByClassName("yes")[0]
+const noButton = document.getElementsByClassName("no")[0]
+const cards = document.getElementsByClassName("cards")[0]
+
 const lotr = {
   title: "The Fellowship Of The Ring",
   author: "by J.R.R. Tolkien",
   pages: "432 pages",
   read: "📕 Not read",
-  recommend: "⭐ Recommend"
+  recommend: "⭐ Recommend",
+  data: "pos: 0",
 }
 
 const myLibrary = [lotr];
 
+class Book {
+  constructor(title, author, pages, read, recommend, data) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+    this.recommend = recommend
+    this.data = data
+  }
+}
+
 const initLibrary = function() {
-  i=0;
+  let i = 0;
   while (i < myLibrary.length) {
     console.log(myLibrary[i]);
     bookToDom(i)
     i++;
   }
 }
-
-const cards = document.getElementsByClassName("cards")[0]
 
 const bookToDom = function(i) {
 
@@ -51,6 +70,11 @@ const bookToDom = function(i) {
   recommend.textContent = myLibrary[i].recommend;
   card.appendChild(recommend);
 
+  let data = document.createElement('p');
+  data.classList.add('data');
+  data.textContent = myLibrary[i].data;
+  card.appendChild(data);
+
   let cardButtons = document.createElement('div');
   cardButtons.classList.add('card-buttons');
   card.appendChild(cardButtons);
@@ -78,16 +102,6 @@ function clearRadioButtons(){
    for(var i=0;i<ele.length;i++){
       ele[i].checked = false;
    }
-}
-
-class Book {
-  constructor(title, author, pages, read, recommend) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.recommend = recommend
-  }
 }
 
 const getAuthorInput = function() {
@@ -143,8 +157,8 @@ const getInput = function() {
   readInput = getReadInput(readInput)
   let recommendInput
   recommendInput = getRecommendInput(recommendInput)
-  
-  let addBookToLibrary = new Book(titleInput, authorInput, pagesInput, readInput, recommendInput);
+  let data = "pos: " + [myLibrary.length]
+  let addBookToLibrary = new Book(titleInput, authorInput, pagesInput, readInput, recommendInput, data);
   myLibrary.push(addBookToLibrary)
   let i = [myLibrary.length - 1]
   bookToDom(i)
@@ -155,14 +169,6 @@ const getInput = function() {
   clearRadioButtons()
   }
 }
-
-const submitButton = document.getElementsByClassName("submit-button")[0]
-const newBookButton = document.getElementsByClassName("new-book-button")[0]
-const cancelButton = document.getElementsByClassName("cancel-button")[0]
-const newBookDialog = document.querySelector("dialog")
-const removeBookDialog = document.getElementsByClassName("remove-book-dialog")[0]
-const yesButton = document.getElementsByClassName("yes")[0]
-const noButton = document.getElementsByClassName("no")[0]
 
 submitButton.addEventListener("click", (e) => e.preventDefault());
 
@@ -188,18 +194,6 @@ document.addEventListener("keydown", ({key}) => {
     document.getElementById("book").reset(); 
   }
 })
-
-// dialog.addEventListener("click", e => {
-//   const dialogDimensions = dialog.getBoundingClientRect()
-//   if (
-//     e.clientX < dialogDimensions.left ||
-//     e.clientX > dialogDimensions.right ||
-//     e.clientY < dialogDimensions.top ||
-//     e.clientY > dialogDimensions.bottom
-//   ) {
-//     dialog.close()
-//   }
-// })
 
 function toggleRead(toggleReadButton) {
   let read = toggleReadButton.parentElement.parentElement.children[3]
@@ -229,12 +223,28 @@ document.addEventListener('click', (e) => {
   }
 })
 
-function removeBook() {
-  bookCache.remove()
-  removeBookDialog.close()
+let bookCache
+
+const updateData = function() {
+  let i = 0;
+  while (i < myLibrary.length) {
+    myLibrary[i].data = "pos: " + i;
+    document.getElementsByClassName("data")[i].textContent = myLibrary[i].data
+    i++;
+  }
 }
 
-let bookCache
+function removeArrayObject() {
+  let i = bookCache.getElementsByClassName("data")[0].textContent.replace(/[^0-9]/g, "");
+  myLibrary.splice(i, 1);
+}
+
+function removeBook() {
+  removeArrayObject()
+  bookCache.remove()
+  updateData()
+  removeBookDialog.close()
+}
 
 yesButton.addEventListener("click", function() {
   removeBook()
@@ -253,7 +263,6 @@ document.addEventListener('click', (e) => {
   }
 })
 
-
 window.history.pushState('popupclosed', null, null);    // initial state: closed
 
 let hideModal = function(event) {
@@ -265,8 +274,20 @@ let hideModal = function(event) {
 };
 
 let showModal = function(event) {
-    if (window.history !== 'opened') {
+    if (history.state !== 'opened') {
         window.history.pushState('opened', null, null);
     }
     window.addEventListener('popstate', hideModal, { once: true })
   };   
+
+  // dialog.addEventListener("click", e => {
+//   const dialogDimensions = dialog.getBoundingClientRect()
+//   if (
+//     e.clientX < dialogDimensions.left ||
+//     e.clientX > dialogDimensions.right ||
+//     e.clientY < dialogDimensions.top ||
+//     e.clientY > dialogDimensions.bottom
+//   ) {
+//     dialog.close()
+//   }
+// })

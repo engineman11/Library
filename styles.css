@@ -109,7 +109,7 @@ header > p:last-of-type {
 .card {
   /* margin: auto; */
   /* margin-top: 10px; */
-  /* position: absolute; */
+  position: relative;
 
   height: 25em;
   width: 17em;
@@ -170,6 +170,15 @@ header > p:last-of-type {
     background-color: rgb(165, 165, 165);
   }
 }
+
+.card .data {
+  position: absolute;
+  bottom: 0.4em;
+  right: 2.2em;
+  font-size: 0.7em;
+  opacity: 50%;
+}
+
 /* 
 .card .remove-book {
   background-color: rgb(228, 0, 0);
