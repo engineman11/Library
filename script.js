@@ -1,4 +1,6 @@
 
+"use strict"
+
 const submitButton = document.getElementsByClassName("submit-button")[0]
 const newBookButton = document.getElementsByClassName("fixed-new-book-button")[0]
 const cancelButton = document.getElementsByClassName("cancel-button")[0]
@@ -41,58 +43,52 @@ const initLibrary = function() {
 const bookToDom = function(i) {
 
   let card = document.createElement('div');
+  let title = document.createElement('p');
+  let author = document.createElement('p');
+  let pages = document.createElement('p');
+  let read = document.createElement('p');
+  let recommend = document.createElement('p');
+  let data = document.createElement('p');
+  let cardButtons = document.createElement('div');
+  let removeButtonDom = document.createElement('button');
+  let recommendButtonDom = document.createElement('button');
+  let readButtonDom = document.createElement('button');
+
+  cards.appendChild(card);
+  card.appendChild(title);
+  card.appendChild(author);
+  card.appendChild(pages);
+  card.appendChild(read);
+  card.appendChild(recommend);
+  card.appendChild(data);
+  card.appendChild(cardButtons);
+  cardButtons.appendChild(removeButtonDom);
+  cardButtons.appendChild(recommendButtonDom);
+  cardButtons.appendChild(readButtonDom);
+
   card.classList.add('card');
   card.setAttribute("data", `${i}`);
-  cards.appendChild(card);
-
-  let title = document.createElement('p');
   title.classList.add('title');
-  title.textContent = myLibrary[i].title;
-  card.appendChild(title);
-
-  let author = document.createElement('p');
   author.classList.add('author');
-  author.textContent = myLibrary[i].author;
-  card.appendChild(author);
-
-  let pages = document.createElement('p');
   pages.classList.add('pages');
-  pages.textContent = myLibrary[i].pages;
-  card.appendChild(pages);
-
-  let read = document.createElement('p');
   read.classList.add('read');
-  read.textContent = myLibrary[i].read;
-  card.appendChild(read);
-
-  let recommend = document.createElement('p');
   recommend.classList.add('recommend');
-  recommend.textContent = myLibrary[i].recommend;
-  card.appendChild(recommend);
-
-  let data = document.createElement('p');
   data.classList.add('data');
-  data.textContent = myLibrary[i].data;
-  card.appendChild(data);
-
-  let cardButtons = document.createElement('div');
   cardButtons.classList.add('card-buttons');
-  card.appendChild(cardButtons);
-
-  let removeButtonDom = document.createElement('button');
   removeButtonDom.classList.add('remove-book');
-  removeButtonDom.textContent = "❌"
-  cardButtons.appendChild(removeButtonDom);
-
-  let recommendButtonDom = document.createElement('button');
   recommendButtonDom.classList.add('toggle-recommend');
-  recommendButtonDom.textContent = "⭐"
-  cardButtons.appendChild(recommendButtonDom);
-
-  let readButtonDom = document.createElement('button');
   readButtonDom.classList.add('toggle-read');
+
+  title.textContent = myLibrary[i].title;
+  author.textContent = myLibrary[i].author;
+  pages.textContent = myLibrary[i].pages;
+  read.textContent = myLibrary[i].read;
+  recommend.textContent = myLibrary[i].recommend;
+  data.textContent = myLibrary[i].data;
+  removeButtonDom.textContent = "❌"
+  recommendButtonDom.textContent = "⭐"
   readButtonDom.textContent = "✅"
-  cardButtons.appendChild(readButtonDom);
+
 }
 
 initLibrary()
@@ -105,14 +101,14 @@ function clearRadioButtons(){
 }
 
 const getAuthorInput = function() {
-  authorInput = document.getElementById("author").value
+  let authorInput = document.getElementById("author").value
   if (!authorInput) return
   else authorInput = "by " + document.getElementById("author").value
   return authorInput
 }
 
 const getPagesInput = function() {
-  pagesInput = document.getElementById("pages").value
+  let pagesInput = document.getElementById("pages").value
   if (!pagesInput) {
     return
   } else {
@@ -122,6 +118,7 @@ const getPagesInput = function() {
 }
 
 const getReadInput = function() {
+  let readInput
   if (document.getElementById("read-yes").checked) {
     return readInput = "✅ Read"
   } else if (document.getElementById("read-no").checked) {
@@ -132,6 +129,7 @@ const getReadInput = function() {
 }
 
 const getRecommendInput = function() {
+  let recommendInput
   if (document.getElementById("recommend-yes").checked) {
     return recommendInput = "⭐ Recommend"
   } else if (document.getElementById("recommend-no").checked) {
@@ -148,15 +146,11 @@ const getInput = function() {
   if (titleInput == "") {
     alert("Need a book title.")
     return
-  } else {
-  let authorInput
-  authorInput = getAuthorInput(authorInput)
-  let pagesInput
-  pagesInput = getPagesInput(pagesInput)
-  let readInput
-  readInput = getReadInput(readInput)
-  let recommendInput
-  recommendInput = getRecommendInput(recommendInput)
+  } 
+  let authorInput = getAuthorInput()
+  let pagesInput = getPagesInput()
+  let readInput = getReadInput()
+  let recommendInput = getRecommendInput()
   let data = "pos: " + [myLibrary.length]
   let addBookToLibrary = new Book(titleInput, authorInput, pagesInput, readInput, recommendInput, data);
   myLibrary.push(addBookToLibrary)
@@ -167,7 +161,6 @@ const getInput = function() {
   document.getElementById("author").value = ""
   document.getElementById("pages").value = ""
   clearRadioButtons()
-  }
 }
 
 submitButton.addEventListener("click", (e) => e.preventDefault());
