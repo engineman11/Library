@@ -3,3 +3,8 @@
 A simple book-list app without any storage yet. Storage will be implemented later.
 
 Purpose: Learning JS objects.
+
+
+### Preview
+
+![Preview](/preview.png/)
